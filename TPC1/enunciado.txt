@@ -1,0 +1,5 @@
+2 imagens, 1 xml ruas
+xml informação ruas casas
+criar indice pagina html de todas as ruas
+cada relemento tem hyoerligação para uma pagina da rua
+cada página tem a informação da rua
