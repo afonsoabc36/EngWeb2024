@@ -9,14 +9,14 @@
             <nome>Afonso Oliveira e Silva</nome>
         </author>
         <uc>
-            <sigla>EW2024</sigla>
+            <sigla>EngWeb2024</sigla>
             <nome>Engenharia Web</nome>
         </uc>
     </meta>
     <resumo>
         <p>Primeiro parágrafo</p>
         <p>Segundo parágrafo</p>
-        <p>Terceiro parágrafo com <url>link</url><texto>url embutido</texto></p>
+        <p>Terceiro parágrafo com <url>link</url><texto>dataset</texto></p>
     </resumo>
     <resultados>
         <resultado>Resultado 1</resultado>
