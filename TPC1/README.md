@@ -19,7 +19,7 @@ A partir do mesmo é possível desenvolver uma página para cada rua e uma pági
 - Extração de informação de ficheiros XML.
 
 ## Compilar
-`python3 script.py`
+```python3 script.py```
 
 ## Notas
 O dataset **[MapaRuas-materialBase](https://epl.di.uminho.pt/~jcr/AULAS/EngWeb2023/aulas2023.html#P1)** encontra-se numa diretoria 2 níveis a cima da diretoria onde está presente o script.
