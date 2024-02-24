@@ -1,9 +1,0 @@
-dataset escola de música
-
-colocar json server a correr sobre o dataset
-
-fazer página web em node com os axios.get()
-
-(ver servidor4)
-criar página com indice, páginas dos instrumentos, dos alunos
-tirar as informações todas
