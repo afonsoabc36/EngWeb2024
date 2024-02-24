@@ -4,13 +4,14 @@ var axios = require('axios');
 http.createServer((req, res) => {
     console.log(req.url);
     
-    res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'})
+    res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
 
     if (req.url === '/') {
         res.write("<h1>Escola de Música</h1>");
         res.write("<br>");
         res.write("<h4><a href='/alunos'>Alunos</a></h4>");
         res.write("<h4><a href='/cursos'>Cursos</a></h4>");
+        res.write("<h4><a href='/instrumentos'>Instrumentos</a></h4>");
         
         res.end();
     } else if (req.url === '/alunos') {
@@ -31,6 +32,8 @@ http.createServer((req, res) => {
                 res.write("<hr />");
             }
 
+            res.write("<h5><a href='/'>Página inicial</a></h5>");
+
             res.end();
         })
         .catch((err) => {
@@ -41,18 +44,19 @@ http.createServer((req, res) => {
         axios.get("http://localhost:17001/cursos?_sort=designacao")
         .then((response) => {
             var data = response.data;
-            console.log(data);
 
             res.write("<h2>Cursos</h2>");
             res.write("<br>");
 
             for (i in data) {
-                res.write("<p><b>Designação: </b><a href='/cursos/" + data[i].id + "'>" + data[i].designacao + "</a></p>");
+                res.write("<p><b>Designação: </b>" +  data[i].designacao + "</p>");
                 res.write("<p><b>ID: </b>" + data[i].id + "</p>");
                 res.write("<p><b>Duração: </b>" + data[i].duracao + " anos</p>");
                 res.write("<p><b>Instrumento: </b>" + data[i].instrumento["#text"] + "</p>");
                 res.write("<hr />");
             }
+
+            res.write("<h5><a href='/'>Página inicial</a></h5>");
 
             res.end();
         })
@@ -71,7 +75,7 @@ http.createServer((req, res) => {
             res.write("<p><b>Duração: </b>" + data.duracao + " anos</p>");
             res.write("<p><b>Instrumento: </b>" + data.instrumento["#text"] + "</p>");
             res.write("<br>");
-            res.write("<h5><a href='/cursos'>Voltar aos cursos</a></h5>")
+            res.write("<h5><a href='/alunos'>Voltar a alunos</a></h5>")
 
             res.end();
         })  
@@ -79,8 +83,32 @@ http.createServer((req, res) => {
             res.write("Error: " + error.message);
             res.end();
         });
+    } else if (req.url === '/instrumentos') {
+        axios.get("http://localhost:17001/instrumentos?_sort=%23text")
+        .then((response) => {
+            var data = response.data;
+
+            res.write("<h2>Instrumentos</h2>");
+            res.write("<br>");
+
+            for (i in data) {
+                res.write("<p><b>Instrumento: </b>" + data[i]["#text"] + "</p>");
+                res.write("<p><b>ID: </b>" + data[i].id + "</p>");
+                res.write("<hr />");
+            }
+
+            res.write("<h5><a href='/'>Página inicial</a></h5>");
+
+            res.end();
+        })
+        .catch((err) => {
+            res.write("Error: " + err.message);
+            res.end();
+        });
     } else {
-        res.write("Error 404: Page not found")
+        res.write("<h1>Error 404: Page not found :/</h1>")
+        res.write("<hr />");
+        res.write("<h3><a href='/'>Voltar à pagina inicial</a></h3>");
         res.end();
     }
 }).listen(2002);

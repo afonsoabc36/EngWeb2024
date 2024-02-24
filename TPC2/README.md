@@ -7,15 +7,24 @@ ucSigla: EW
 ucNome: Engenharia Web
 ---
 
-# TPC2: 
-
-## Resumo
+# TPC2
 
 ## Resultados
+- Criação de uma página inicial com ligações para páginas secundárias
+- Criação de páginas com dados retirados de uma API de dados
+- Interligações entre as páginas criadas
 
 ## Compilar
+**Terminal:** [^1]
 ```
-
+json-server --port 17001 --watch db.json
 ```
-
-## Notas
+```
+node servidor.js
+```
+**Browser:**
+```
+http://localhost:2002/
+```
+[^1]: Executar os comandos em 2 terminais **separados**.
+Parar os processos com *CTRL+C*.
