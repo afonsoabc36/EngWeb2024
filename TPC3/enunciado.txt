@@ -1,0 +1,10 @@
+dataset filmes (americanos) -rep fichas jcr
+
+1. Análise de um dataset e criação da BD em json-server
+2. Serviço que responde às seguintes rotas:
+    GET /filmes - listagem de filmes (cada entrada é uma página para a página do filme) (todas as informações, importante cast e genero, cada item delas com links para)
+        /filmes/<idfilme>
+        /generos
+        /generos/<idgenero>
+        /ator
+        /ator/<idator>
