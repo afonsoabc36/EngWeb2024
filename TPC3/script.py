@@ -25,8 +25,8 @@ with open('filmes.json', 'r') as jsonFile:
 
 finalStructure = {
     'movies' : movies,
-    'genres' : list(genres),
-    'cast' : list(cast)
+    'genres' : sorted(list(genres)),
+    'cast' : sorted(list(cast))
 }
     
 
