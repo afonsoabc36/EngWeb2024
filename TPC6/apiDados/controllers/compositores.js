@@ -10,8 +10,11 @@ module.exports.list = () => {
 }
 
 module.exports.get = (id) => {
+    filtro = {}
+    filtro['_id'] = id;
     return Compositor
-        .find({_id: id})
+        .find(filtro)
+        .sort({nome : 1})
         .exec();
 }
 
