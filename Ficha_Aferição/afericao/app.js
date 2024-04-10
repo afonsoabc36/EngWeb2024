@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var personRouter = require('./routes/people');
-//var modalidadeRouter = require('./routes/modalidades');
+var modalidadeRouter = require('./routes/modalidades');
 var mongoose = require('mongoose');
 
 var mongoDB = 'mongodb://127.0.0.1/afericao';
@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/pessoas', personRouter);
-//app.use('/modalidades', modalidadeRouter);
+app.use('/modalidades', modalidadeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

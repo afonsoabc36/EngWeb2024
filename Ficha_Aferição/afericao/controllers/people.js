@@ -51,3 +51,16 @@ module.exports.delete = (bicc) => {
         .deleteOne()
         .exec();
 }
+
+module.exports.distinct = (campName) => {
+    return Person.distinct(campName)
+}
+
+module.exports.sport = (nomeModalidade) => {
+    filtro = {}
+    filtro["desportos"] = nomeModalidade ;
+    return Person
+        .find(filtro)
+        .sort({nome : 1})
+        .exec()
+}

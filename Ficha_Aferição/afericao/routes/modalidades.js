@@ -1,8 +1,27 @@
 var express = require('express');
 var router = express.Router();
-const Person = require('../models/people');
+var Person = require('../controllers/people');
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
-    
+router.get('/', function(req, res, next) {
+    Person.distinct("desportos")
+        .then( data => {
+            res.jsonp(data);
+        })
+        .catch (err => {
+            res.status(500).jsonp(err);
+        })
 });
+
+/* GET modalidade players. */
+router.get('/:nomeModalidade', function(req, res, next) {
+    Person.sport(req.params.nomeModalidade)
+        .then( data => {
+            res.jsonp(data);
+        })
+        .catch (err => {
+            res.status(501).jsonp(err);
+        })
+});
+
+module.exports = router;

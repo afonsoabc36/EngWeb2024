@@ -6,7 +6,6 @@ var Person = require('../controllers/people');
 router.get('/', function(req, res, next) {
   Person.list()
       .then(data => {
-        console.log(data);
         res.jsonp(data);
       })
       .catch(err => {
