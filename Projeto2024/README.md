@@ -1,4 +1,4 @@
-# Relatório de Engenharia Web - Base de Dados de Acordãos
+# Relatório de Engenharia Web - Gerador de Websites para UC
 
 ## **Autores**
 
